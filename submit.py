@@ -14,12 +14,9 @@ paths_dict['input_data']=os.path.join(paths_dict['data'],'input')
 paths_dict['output_data']=os.path.join(paths_dict['data'],'output')
 paths_dict['model_runs']=os.path.join(paths_dict['output_data'],'model_runs')
 
-# Create dataset of just text from training data
+# Path to csv file where each row is a sentence
+#  where each word is seperated by white space character
 path_to_text_file=os.path.join(paths_dict['data'],'train_text.csv')
-with open(path_to_text_file,'w') as ofile:
-    writer=csv.writer(ofile)
-    for ix, row in train.iterrows():
-        writer.writerow([row['text']])
 
 # Set parameters for model run
 
