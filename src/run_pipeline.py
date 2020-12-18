@@ -5,7 +5,6 @@ import tensorflow as tf
 import sys, os, io 
 
 # udf libraries
-os.chdir('/Users/ryanstevens/Dropbox/nlp/resources/word2vec/py_implementation/')
 import model 
 import processing_h
 
