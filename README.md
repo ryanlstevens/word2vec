@@ -1,9 +1,11 @@
 # word2vec
 Keras implementation of word2vec, including full data processing pipeline, where impelementation closely follows [TF tutorial](https://www.tensorflow.org/tutorials/text/word2vec)
 
-This implementation allows flexibility in submitting parameters to full data processing + model pipeline runs. Additionally, it is a full pipeline you can play with to see how changing different parameters and text processing choices impacts word embeddings. 
+Implementation primarily for building intuition for both keras and word2vec. Includes both data processing and model estimation pipelines. 
 
-Specifically, by running __submit.py__ users can process text file (in .csv) format, then run through word2vec using parameters set in the script. Currently, the data takes in the file ``train_text.csv``, which is a __.csv__ file where each line is a sentence where each word is sperated by a white space. By changing __path_to_text_file__ you can change which file is processed. 
+To run the data processing, must run the __submit.py__ script. This script reads in a text file (using the __path_to_text_file__ parameter), then does a grid search over parameter grids at top of script. 
+
+If a user wants to test a single combination of parameter values, work with the commands inside the for loop, which runs preprocessing + model estimation by calling __run.py__ for a fixed set of parameter values.
 
 __submit.py__ allows users to set a series of parameters in word2vec runs. There are three sets of parameters ``Data Processing``, ``word2Vec``, and ``Model Tuning`` parameters: 
 
