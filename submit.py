@@ -53,11 +53,12 @@ for ix,elem in enumerate(param_grid):
     EPOCHS = elem[5]
     SEED = 142
     # RUN WORD 2 VEC PYTHON SCRIPT 
-    run_command='''python {run_file_path} '{file_path}' {batch_size} {buffer_size} {autotune} {num_ns} 
+    run_command='''python {py_run_script} '{path_to_text_data_file}' {batch_size} {buffer_size} {autotune} {num_ns} 
                         {t_param} {vocab_size} {window_size}
                         {embedding_dim} {sequence_length}
-                        {epochs} {seed} '{root_path_to_model_files}' '''.format(run_file_path='/Users/ryanstevens/Dropbox/nlp/resources/word2vec/py_implementation/run.py'
-                                                        ,file_path=path_to_text_file
+                        {epochs} {seed} '{path_to_model_output_dir}' '''.format(
+                                                        py_run_script=os.path.join(paths_dict['code'],'run.py')
+                                                        ,path_to_text_data_file=path_to_text_file
                                                         ,batch_size=BATCH_SIZE
                                                         ,buffer_size=BUFFER_SIZE
                                                         ,num_ns=NUM_NS
@@ -69,6 +70,6 @@ for ix,elem in enumerate(param_grid):
                                                         ,epochs=EPOCHS
                                                         ,autotune=AUTOTUNE
                                                         ,seed=SEED
-                                                        ,root_path_to_model_files=paths_dict['model_runs'])
+                                                        ,path_to_model_output_dir=paths_dict['model_runs'])
     run_command=re.sub(' +', ' ',run_command.replace('\n',''))
     os.system(run_command)
